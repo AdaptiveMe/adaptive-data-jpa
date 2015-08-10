@@ -36,7 +36,7 @@ public class UserEntity extends BaseEntity {
     private String userId;
 
     @NotNull
-    @Column(name = "password_hashe")
+    @Column(name = "password_hash")
     private String passwordHash;
 
     @ElementCollection(fetch = FetchType.EAGER)

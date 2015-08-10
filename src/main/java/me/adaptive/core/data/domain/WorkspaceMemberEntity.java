@@ -37,7 +37,7 @@ public class WorkspaceMemberEntity extends BaseEntity {
     private WorkspaceEntity workspace;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "workspace_member_roles", joinColumns = @JoinColumn(name = "workspace_id", referencedColumnName = "id"))
+    @CollectionTable(name = "workspace_member_roles", joinColumns = @JoinColumn(name = "workspace_member_id", referencedColumnName = "id"))
     @Column(name = "role")
     private Set<String> roles = new HashSet<String>();
 
