@@ -20,6 +20,7 @@ package me.adaptive.core.data.domain;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,7 +28,7 @@ import java.util.Date;
  * Created by panthro on 04/06/15.
  */
 @MappedSuperclass
-public abstract class BaseEntity {
+public abstract class BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,7 +65,7 @@ public abstract class BaseEntity {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    private void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -83,7 +84,7 @@ public abstract class BaseEntity {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    private void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
 
@@ -91,7 +92,7 @@ public abstract class BaseEntity {
         return this.version;
     }
 
-    public void setVersion(Integer version) {
+    private void setVersion(Integer version) {
         this.version = version;
     }
 
