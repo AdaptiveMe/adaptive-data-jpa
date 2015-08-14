@@ -11,7 +11,11 @@ import java.util.Map;
  * Created by ferranvila on 10/08/15.
  */
 @Entity
-@Table(name = "metrics_server")
+@Table(
+        name = "metrics_server",
+        indexes = {
+                @Index(name = "idx_hostname", columnList = "hostname", unique = false)
+        })
 public class MetricServerEntity extends BaseEntity {
 
     @NotNull
