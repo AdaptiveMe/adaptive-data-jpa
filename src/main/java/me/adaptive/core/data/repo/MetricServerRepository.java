@@ -17,13 +17,12 @@
 package me.adaptive.core.data.repo;
 
 import me.adaptive.core.data.domain.MetricServerEntity;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-
-import java.util.Set;
 
 /**
  * Server information metrics repository
@@ -44,7 +43,8 @@ public interface MetricServerRepository extends JpaRepository<MetricServerEntity
 
     // @Query("select ms, msa from MetricServerEntity ms inner join ms.attributes msa where ms.hostname = :hostname and msa.name = :metric")
     // @Query("select ms from MetricServerEntity ms where ms.hostname = ?1 and ms.id = (select msa from ms.attributes msa where msa.name = ?2)")
-    @Query("select ms from MetricServerEntity ms join ms.attributes msa")
-    Set<MetricServerEntity> getMetricsHostnameAndMetrics(String hostname, String metric, PageRequest pageRequest);
+    @Query("select ms from MetricServerEntity ms where ms.hostname = ?1 and KEY(ms.attributes) = ?2 ")
+    Page<MetricServerEntity> findByHostnameAndAttributeKey(String hostname, String metric, Pageable page);
+
 
 }
