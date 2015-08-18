@@ -19,6 +19,7 @@ package me.adaptive.core.data.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -53,7 +54,7 @@ public class UserEntity extends BaseEntity {
     @MapKeyColumn(name = "name")
     @Column(name = "value")
     @CollectionTable(name = "user_preferences", joinColumns = @JoinColumn(name = "user_id"))
-    private Map<String, String> preferences;
+    private Map<String, String> preferences = new HashMap<>();
 
     public String getUserId() {
         return userId;
