@@ -1,7 +1,6 @@
 package me.adaptive.core.data.domain;
 
 import me.adaptive.core.data.domain.types.NotificationChannel;
-import me.adaptive.core.data.domain.types.NotificationEvent;
 import me.adaptive.core.data.domain.types.NotificationStatus;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,9 +29,8 @@ public class NotificationEntity extends BaseEntity {
      * Even upon the notification has been created
      */
     @Column(name = "event")
-    @Enumerated(EnumType.STRING)
     @NotNull
-    private NotificationEvent event;
+    private String event;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -71,11 +69,11 @@ public class NotificationEntity extends BaseEntity {
         this.channel = channel;
     }
 
-    public NotificationEvent getEvent() {
+    public String getEvent() {
         return event;
     }
 
-    public void setEvent(NotificationEvent event) {
+    public void setEvent(String event) {
         this.event = event;
     }
 
