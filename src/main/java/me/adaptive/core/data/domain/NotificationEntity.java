@@ -139,4 +139,17 @@ public class NotificationEntity extends BaseEntity {
         return result;
     }
 
+    @PrePersist
+    void prePersist() {
+        if (this.event != null) {
+            this.event = this.event.toUpperCase();
+        }
+    }
+
+    @PreUpdate
+    void preUpdate() {
+        if (this.event != null) {
+            this.event = this.event.toUpperCase();
+        }
+    }
 }

@@ -11,15 +11,15 @@ public interface NotificationEvent {
     /**
      * When the user is registered
      */
-    String USER_REGISTERED = "user_registered";
+    String USER_REGISTERED = "USER_REGISTERED";
 
     /**
      * When the user Activates it's account
      */
-    String USER_ACTIVATED = "user_activated";
+    String USER_ACTIVATED = "USER_ACTIVATED";
 
     /**
      * When a user forgets it's password
      */
-    String FORGOT_PASSWORD = "forgot_password";
+    String FORGOT_PASSWORD = "FORGOT_PASSWORD";
 }
