@@ -5,6 +5,7 @@ package me.adaptive.core.data.domain.types;
  *
  * Created by panthro on 17/08/15.
  */
+@SuppressWarnings("unused")
 public interface NotificationEvent {
 
 
@@ -22,4 +23,17 @@ public interface NotificationEvent {
      * When a user forgets it's password
      */
     String FORGOT_PASSWORD = "FORGOT_PASSWORD";
+
+    /**
+     * When a build request finishes successfully
+     */
+    String BUILD_SUCCESSFUL = "BUILD_SUCCESSFUL";
+    /**
+     * When a build request fails
+     */
+    String BUILD_FAILED = "BUILD_FAILED";
+    /**
+     * When a build request is canceled
+     */
+    String BUILD_CANCELLED = "BUILD_CANCELLED";
 }

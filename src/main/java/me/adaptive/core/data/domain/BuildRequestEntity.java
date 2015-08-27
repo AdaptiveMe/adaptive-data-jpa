@@ -161,4 +161,12 @@ public class BuildRequestEntity extends BaseEntity {
                 ", status=" + status +
                 '}';
     }
+
+    public boolean isFinished() {
+        return status != null &&
+                (status.equals(BuildRequestStatus.SUCCESSFUL)
+                        || status.equals(BuildRequestStatus.CANCELLED)
+                        || status.equals(BuildRequestStatus.FAILED));
+
+    }
 }
