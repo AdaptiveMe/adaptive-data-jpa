@@ -83,7 +83,7 @@ public class JpaConfiguration {
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         properties.setProperty("hibernate.connection.charSet", "UTF-8");
         properties.setProperty("hibernate.connection.useUnicode", "true");
-        properties.setProperty("org.hibernate.flushMode", "COMMIT");
+        properties.setProperty("org.hibernate.flushMode", "always");
         return properties;
     }
 
